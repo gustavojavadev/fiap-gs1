@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>peixes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div th:replace="layout/header :: headerFragment"></div>
+	<div th:replace="layout/menu :: menuFragment"></div>
+
+	<div id="content">
+    
+    <div class="container">
+        <h1>Cadastro de peixes</h1>
+
+        <form th:action="@{/peixes/save}" th:object="${peixe}" method="post">
+            <div class="input-group mb-3">
+
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Id</div>
+                </div>
+                <input type="text" class="form-control" id="id" th:field="*{id}" readonly>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Nome</div>
+                </div>
+                <input type="text" class="form-control" id="nome" th:field="*{nome}">
+            </div>
+            
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Descrição</div>
+                </div>
+                <input type="text" class="form-control" id="descricao" th:field="*{descricao}">
+            </div>
+            
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Peso</div>
+                </div>
+                <input type="text" class="form-control" id="peso" th:field="*{peso}">
+            </div>
+            
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Data</div>
+                </div>
+                <input type="text" class="form-control" id="data" th:field="*{data}">
+            </div>
+                                     
+            <button type="submit" class="btn btn-primary btn-sm">Confirmar</button>
+            <a th:href="@{/peixes}" class="btn btn-secondary btn-sm">Cancelar</a>
+        </form>
+        
+    </div>
+    
+    </div>
+    
+    <div th:replace="layout/footer :: footerFragment"></div>
+        
+</body>
+</html>

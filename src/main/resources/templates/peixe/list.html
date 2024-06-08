@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>peixes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">    
+</head>
+<body>
+	<div th:replace="layout/header :: headerFragment"></div>
+	<div th:replace="layout/menu :: menuFragment"></div>
+
+	<div id="content">
+    <div class="container">
+        <h3>Listagem de peixes</h3>
+
+        <a href="peixes/add" class="btn-sm btn-primary"><i class="fas fa-plus"></i></a>
+
+        <table class="table table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>peixe</th> 
+                    <th>descrição</th>
+                    <th>peso</th>
+                    <th>data</th>
+                    <th>Ações</th>            
+                </tr>
+            </thead>
+            <tbody>
+             <tr th:each="peixe : ${peixes}">
+               		<td th:text="${peixe.id}"></td>
+                   	<td th:text="${peixe.nome}"></td>
+                   	<td th:text="${peixe.descricao}"></td>
+                   	<td th:text="${peixe.peso}"></td>
+                   	<td th:text="${peixe.data}"></td>
+                   	<td>
+                   		<a class="btn-sm btn-primary" th:href="@{/peixes/update/{id}(id=${peixe.id})}">Editar</a>
+	                   	<a class="btn-sm btn-danger" th:href="@{/peixes/delete/{id}(id=${peixe.id})}">Excluir</a>
+                   	</td>               
+               </tr>                       
+            </tbody>
+        </table>
+        
+    </div>
+	</div>
+    
+    <div th:replace="layout/footer :: footerFragment"></div>
+</body>
+</html>

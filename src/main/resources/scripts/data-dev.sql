@@ -1,0 +1,2 @@
+insert into peixes (id, nome_peixe, descricao, peso_maximo, data_catalogo) values (nextval('peixes_seq'), 'Peixe palhaço', 'de couro', 2.5, '2024-06-07');
+insert into peixes (id, nome_peixe, descricao, peso_maximo, data_catalogo) values (nextval('peixes_seq'), 'Peixe leao', 'de veneno', 5.5, '2024-06-06');
